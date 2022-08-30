@@ -2,13 +2,13 @@ package co.edu.escuelaing.ieti.laboratorio_1.Laboratorio1.service;
 
 import co.edu.escuelaing.ieti.laboratorio_1.Laboratorio1.dto.UserDto;
 import co.edu.escuelaing.ieti.laboratorio_1.Laboratorio1.entities.User;
-import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
-@Service
+
 public class UserServiceHashmap implements UserService {
 
     private HashMap<String, User> HashMapUsers;
@@ -25,8 +25,8 @@ public class UserServiceHashmap implements UserService {
     }
 
     @Override
-    public User findById(String id) {
-        return HashMapUsers.get(id);
+    public Optional<User> findById(String id) {
+        return Optional.ofNullable(HashMapUsers.get(id));
     }
 
     @Override

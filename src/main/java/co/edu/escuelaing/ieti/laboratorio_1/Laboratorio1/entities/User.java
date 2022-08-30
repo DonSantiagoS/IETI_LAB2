@@ -23,13 +23,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
 
-@Entity
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+import java.util.Date;
+
+@Document
 public class User {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
     private String Id;
     private String name;
     private String lastName;
+    @Indexed( unique = true )
     private String email;
     private LocalDateTime createdAt;
 
